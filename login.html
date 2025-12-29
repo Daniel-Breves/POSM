@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Gasoek+One&family=JetBrains+Mono:wght@300&display=swap" rel="stylesheet">
+    <title>POSM | System Login</title>
+    <style>
+        body { font-family: 'JetBrains Mono', monospace; }
+        h1, h2, .font-gasoek { font-family: 'Gasoek One', sans-serif; }
+        .text-shadow-glow { text-shadow: 0 0 15px rgba(255,255,255,0.3); }
+        input:focus { outline: none; border-color: white; background: rgba(255,255,255,0.05); }
+    </style>
+</head>
+<body class="bg-black text-white selection:bg-white selection:text-black min-h-screen flex flex-col">
+
+    <header class="fixed top-0 right-0 left-0 bg-black/90 border-b border-zinc-800 backdrop-blur-md z-50 flex flex-row justify-between items-center px-10 h-20">
+        <div class="flex items-center gap-4">
+            <a href="index.html" class="flex items-center gap-4 hover:opacity-80 transition">
+                <img class="w-12" src="front/assets/2.png" alt="POSM Ghost Logo"> 
+                <span class="font-gasoek text-2xl tracking-tighter">POSM</span>
+            </a>
+        </div>
+        
+        <nav class="hidden md:flex flex-row gap-12 text-[10px] uppercase tracking-[0.3em] font-bold">
+            <a class="transition duration-500 hover:text-zinc-500" href="lp.html">Back_to_Home</a>
+            <a class="border border-white/20 px-4 py-1 hover:bg-white hover:text-black transition duration-500" href="signup.html">Join_ID</a>
+        </nav>
+    </header>
+
+    <main class="flex-grow flex items-center justify-center pt-32 pb-20 px-6">
+        <div class="w-full max-w-md">
+            
+            <div class="text-center mb-12">
+                <h1 class="text-4xl uppercase tracking-tighter text-shadow-glow mb-4">Sync_Identity</h1>
+                <p class="text-[10px] text-zinc-600 uppercase tracking-[0.4em]">Validate your access key to enter the grid.</p>
+            </div>
+
+            <section class="border border-zinc-800 bg-zinc-950 p-8 shadow-2xl relative overflow-hidden">
+                <div class="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-white/20 to-transparent animate-pulse"></div>
+
+                <form action="login.php" method="POST" class="flex flex-col gap-8">
+                    
+                    <div class="group">
+                        <label class="block text-[9px] text-zinc-500 uppercase tracking-widest mb-3 group-focus-within:text-white transition-colors">
+                            // User_Node
+                        </label>
+                        <input type="email" name="email" required placeholder="architect@nexus.com" 
+                               class="w-full bg-black border border-zinc-900 p-4 text-sm font-mono transition-all placeholder:text-zinc-800">
+                    </div>
+
+                    <div class="group">
+                        <div class="flex justify-between items-center mb-3">
+                            <label class="block text-[9px] text-zinc-500 uppercase tracking-widest group-focus-within:text-white transition-colors">
+                                // Access_Key
+                            </label>
+                            <a href="#" class="text-[8px] text-zinc-700 hover:text-white transition uppercase tracking-tighter">Forgot_Key?</a>
+                        </div>
+                        <input type="password" name="password" required placeholder="••••••••••••" 
+                               class="w-full bg-black border border-zinc-900 p-4 text-sm font-mono transition-all placeholder:text-zinc-800">
+                    </div>
+
+                    <div class="mt-4">
+                        <button type="submit" class="w-full bg-white text-black font-gasoek py-5 text-xl tracking-tighter hover:bg-zinc-200 transition-all cursor-pointer shadow-lg active:scale-[0.98]">
+                            AUTHORIZE_ACCESS
+                        </button>
+                    </div>
+                </form>
+            </section>
+
+            <div class="mt-10 text-center">
+                <p class="text-[10px] text-zinc-700 uppercase tracking-[0.3em]">
+                    New to the protocol? 
+                    <a href="signup.html" class="text-white underline underline-offset-4 ml-2 hover:text-zinc-400 transition">Initialize_ID</a>
+                </p>
+            </div>
+        </div>
+    </main>
+
+    <footer class="border-t border-zinc-900 py-10 px-10 text-center">
+        <p class="text-[9px] text-zinc-700 uppercase tracking-[0.5em]">&copy; 2025 POSM // NEXUS GROUP</p>
+    </footer>
+
+</body>
+</html>

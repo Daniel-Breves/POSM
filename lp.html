@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Gasoek+One&family=JetBrains+Mono:wght@300&display=swap" rel="stylesheet">
+    <title>POSM | The Social Protocol</title>
+    <style>
+        body { font-family: 'JetBrains Mono', monospace; }
+        h1, h2, .font-gasoek { font-family: 'Gasoek One', sans-serif; }
+        .text-shadow-glow { text-shadow: 0 0 15px rgba(255,255,255,0.3); }
+    </style>
+</head>
+<body class="bg-black text-white selection:bg-white selection:text-black">
+
+    <header class="fixed top-0 right-0 left-0 bg-black/90 border-b border-zinc-800 backdrop-blur-md z-50 flex flex-row justify-between items-center px-10 h-20">
+        <div class="flex items-center gap-4">
+            <img class="w-12" src="front/assets/2.png" alt="POSM Ghost Logo"> <span class="font-gasoek text-2xl tracking-tighter">POSM</span>
+        </div>
+        
+        <nav class="hidden md:flex flex-row gap-12 text-[10px] uppercase tracking-[0.3em] font-bold">
+            <a class="transition duration-500 hover:text-zinc-500 hover:-translate-y-0.5" href="#feed">The_Grid</a>
+            <a class="transition duration-500 hover:text-zinc-500 hover:-translate-y-0.5" href="signup.html">Join_ID</a>
+            <a class="transition duration-500 hover:text-zinc-500 hover:-translate-y-0.5" href="login.html">Login</a>
+            <a class="border border-white/20 px-4 py-1 hover:bg-white hover:text-black transition duration-500" href="#">Nexus</a>
+        </nav>
+    </header>
+
+    <main class="mt-20 flex flex-col items-center">
+        <section id="hero" class="min-h-[90vh] flex flex-col items-center justify-center text-center px-6">
+            <img class="w-64 mb-10 animate-pulse" src="front/assets/2.png" alt="POSM"> <h1 class="text-5xl md:text-8xl uppercase leading-none tracking-tighter text-shadow-glow">
+                Programming of the <br> <span class="text-zinc-700 italic">Social Media.</span>
+            </h1>
+
+            <p class="mt-12 max-w-2xl text-zinc-500 text-sm md:text-base leading-relaxed uppercase tracking-widest font-light">
+                No noise. No distractions. Just code and logic. The first social protocol integrated into the <span class="text-white">Nexus Ecosystem.</span>
+            </p>
+
+            <div class="mt-16 flex flex-col md:flex-row gap-8 items-center">
+                <a href="signup.html">
+               <button class="bg-white text-black font-gasoek text-xl w-64 h-16 transition-all duration-500 hover:scale-105 hover:shadow-[0_0_30px_rgba(255,255,255,0.4)] cursor-pointer">
+                    INITIALIZE_ID
+                </button>
+                </a>
+                <span class="font-mono text-[10px] text-zinc-700 tracking-[0.5em] animate-bounce text-vertical-lr">SCROLL_TO_EXPLORE</span>
+            </div>
+        </section>
+
+        <section id="features" class="w-full max-w-7xl px-10 py-40 grid grid-cols-1 md:grid-cols-2 gap-20 border-t border-zinc-900">
+            <div>
+                <h2 class="text-5xl mb-10">THE POSMING <br> PROTOCOL.</h2>
+                <p class="text-zinc-400 leading-loose">
+                    Post your logic, delete your traces, and evolve your profile. <br><br>
+                    POSM is built for developers who value <span class="text-white">Context Preservation</span>. Your identity is unified, your data is yours, and your reach is determined by the quality of your signals.
+                </p>
+            </div>
+            
+            <div class="border border-zinc-800 bg-zinc-950 p-1 text-left group transition-all duration-700 hover:border-white/50">
+                <div class="bg-zinc-900/50 p-6">
+                    <div class="flex items-center gap-3 mb-6">
+                        <div class="w-2 h-2 bg-green-500"></div>
+                        <span class="text-[10px] text-zinc-500 uppercase tracking-widest">User: nexus_architect_01</span>
+                    </div>
+                    <p class="text-xl font-light italic mb-8">"Every code point finds its place in the grid. Seamlessly."</p>
+                    <div class="flex justify-between items-center border-t border-zinc-800 pt-4">
+                        <span class="text-[10px] font-gasoek text-zinc-600">HTTP 200 OK</span>
+                        <div class="flex gap-4 opacity-0 group-hover:opacity-100 transition-opacity">
+                            <span class="text-[9px] border border-zinc-700 px-2">REPLY</span>
+                            <span class="text-[9px] border border-zinc-700 px-2 text-red-900">DELETE</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-black border-t border-zinc-800 py-20 px-10">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center md:items-start gap-16">
+            <div class="text-center md:text-left">
+                <h2 class="font-gasoek text-4xl mb-4 text-shadow-glow">POSM</h2>
+                <p class="text-[10px] text-zinc-600 uppercase tracking-[0.4em]">&copy; 2025 Nexus Group. All rights reserved.</p>
+            </div>
+
+            <section class="flex flex-row gap-20 text-[10px] uppercase tracking-widest font-bold">
+                <div class="flex flex-col gap-4">
+                    <h4 class="text-zinc-700 mb-2">// Network</h4>
+                    <a class="hover:text-zinc-400 transition" href="#">The Grid</a>
+                    <a class="hover:text-zinc-400 transition" href="#">Documentation</a>
+                    <a class="hover:text-zinc-400 transition" href="#">Changelog</a>
+                </div>
+                <div class="flex flex-col gap-4 border-l border-zinc-900 pl-10">
+                    <h4 class="text-zinc-700 mb-2">// Social</h4>
+                    <a class="hover:text-zinc-400 transition" href="#">Instagram</a>
+                    <a class="hover:text-zinc-400 transition" href="#">GitHub</a>
+                    <a class="hover:text-zinc-400 transition" href="#">Support</a>
+                </div>
+            </section>
+        </div>
+    </footer>
+
+</body>
+</html>
