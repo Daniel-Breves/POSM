@@ -46,6 +46,59 @@ $posming = $result_posming->fetch_assoc();
         .text-shadow-glow { text-shadow: 0 0 15px rgba(255,255,255,0.3); }
     </style>
 </head>
+//card de editar perfil
+<section id="modalEditarPerfil" class="hidden fixed inset-0 z-[100] flex items-center justify-center bg-black/60 backdrop-blur-sm p-4">
+    
+    <div class="w-full max-w-md border border-zinc-800 bg-zinc-950 p-8 shadow-2xl relative overflow-y-auto max-h-[90vh]">
+        
+        <div class="flex items-center gap-2 mb-8">
+            <div class="w-1.5 h-1.5 bg-blue-500 animate-pulse"></div>
+            <span class="text-[9px] font-mono text-zinc-500 uppercase tracking-[0.3em]">Module: Identity_Update</span>
+        </div>
+
+        <form action="update_profile.php" method="POST" enctype="multipart/form-data" class="flex flex-col gap-6">
+            <div class="flex flex-col items-center gap-4 mb-4">
+                <div class="relative group">
+                    <div class="rounded-full w-28 h-28 bg-black border border-zinc-800 overflow-hidden">
+                        <img id="preview" src="front/assets/3.png" alt="Avatar" class="rounded-full  w-full h-full object-cover opacity-70">
+                    </div>
+                    <label for="avatar-upload" class="absolute inset-0 flex items-center justify-center bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity cursor-pointer">
+                        <span class="text-[8px] uppercase tracking-tighter border border-white/20 p-1">Change_GFX</span>
+                    </label>
+                    <input type="file" id="avatar-upload" name="profile_pic" class="hidden" accept="image/*">
+                </div>
+            </div>
+
+            <div class="space-y-2">
+                <label class="block text-[9px] text-zinc-600 uppercase tracking-[0.2em]">// Identity_Handle</label>
+                <div class="relative">
+                    <span class="absolute left-4 top-1/2 -translate-y-1/2 text-zinc-800 text-xs">@</span>
+                    <input type="text" name="username" placeholder="<?php echo htmlspecialchars($usuario['name']) ?>" class="w-full bg-black border border-zinc-900 p-3 pl-10 text-sm font-mono text-white focus:border-blue-900 outline-none transition-all">
+                </div>
+            </div>
+
+            <div class="space-y-2">
+                <label class="block text-[9px] text-zinc-600 uppercase tracking-[0.2em]">// Communication_Node</label>
+                <input type="email" name="email" placeholder="<?php echo htmlspecialchars($usuario['email']) ?>" class="w-full bg-black border border-zinc-900 p-3 text-sm font-mono text-white focus:border-blue-900 outline-none transition-all">
+            </div>
+
+            <div class="space-y-2">
+                <label class="block text-[9px] text-zinc-600 uppercase tracking-[0.2em]">// Access_Cipher</label>
+                <input type="password" name="password" placeholder="<?php echo htmlspecialchars($usuario['password']) ?>" class="w-full bg-black border border-zinc-900 p-3 text-sm font-mono text-white focus:border-blue-900 outline-none transition-all">
+            </div>
+
+            <div class="mt-4">
+                <button type="submit" class="w-full bg-white text-black font-gasoek py-4 text-lg tracking-tighter hover:bg-zinc-200 transition-all cursor-pointer active:scale-95 shadow-[0_0_20px_rgba(255,255,255,0.1)]">
+                    COMMIT_CHANGES
+                </button>
+            </div>
+        </form>
+
+        <button id="fecharModal" class="w-full mt-4 text-[9px] text-zinc-600 font-mono uppercase hover:text-red-500 transition tracking-widest">
+            [ Cancel_Operation ]
+        </button>
+    </div>
+</section>
 <body class="bg-black text-white selection:bg-white selection:text-black">
 
     <header class="fixed top-0 right-0 left-0 bg-black/90 border-b border-zinc-800 backdrop-blur-md z-50 flex flex-row justify-between items-center px-10 h-20">
@@ -87,9 +140,16 @@ $posming = $result_posming->fetch_assoc();
                     "Building the foundation of the Nexus Social Protocol. Logic is my only law."
                 </p>
                 <div class="flex gap-4 justify-center md:justify-start">
-                    <button class="bg-white text-black font-gasoek px-6 py-2 text-xs hover:bg-zinc-300 transition cursor-pointer">
+                    <button id="btnEditarsPerfil" class="bg-white text-black font-gasoek px-6 py-2 text-xs hover:bg-zinc-300 transition cursor-pointer">
                         EDIT_IDENTITY
                     </button>
+                    <form action="delete_account.php" method="POST" 
+                     onsubmit="return confirm('ATENÇÃO: Esta operação irá purgar todos os teus sinais da rede de forma irreversível. Confirmar encerramento de ID?')">
+                    <button type="submit" class="bg-black border-1 border-red-600 text-red-600 font-gasoek px-6 py-2 text-xs hover:bg-red-100 transition cursor-pointer">
+                      DELETE_IDENTITY
+                     </button>
+    
+</form>
                 </div>
             </div>
         </section>
@@ -204,5 +264,14 @@ $posming = $result_posming->fetch_assoc();
         <p class="text-[8px] text-zinc-800 uppercase tracking-[0.8em]">Nexus Group // Zero Noise Protocol</p>
     </footer>
 
+    <script>
+        document.getElementById("btnEditarsPerfil").addEventListener("click", () => {
+    document.getElementById("modalEditarPerfil").classList.remove("hidden");
+});
+
+document.getElementById("fecharModal").addEventListener("click", () => {
+    document.getElementById("modalEditarPerfil").classList.add("hidden");
+});
+    </script>
 </body>
 </html>
