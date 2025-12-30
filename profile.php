@@ -21,7 +21,9 @@ $stmt_posming->execute();
 $result_posming = $stmt_posming->get_result();
 $posming = $result_posming->fetch_assoc();
 
-    $sql_total_posmings = "SELECT    SUM(content) FROM posmings WHERE id_author = ?";
+
+//tentando fazer a soma total de pormings do usuario, mas ainda nao consegui
+    $sql_total_posmings = "SELECT COUNT(id_posming) FROM posmings WHERE id_author = ?";
     $stmt_total = $conexao->prepare($sql_total_posmings);
     $stmt_total->bind_param("i", $id_usuario);
     $stmt_total->execute();
@@ -69,7 +71,7 @@ $posming = $result_posming->fetch_assoc();
             
             <div class="relative group">
                 <div class="w-40 h-40 bg-zinc-900 rounded-full border border-zinc-800 flex items-center justify-center overflow-hidden shadow-[0_0_30px_rgba(0,0,0,0.5)]">
-                    <img src="https://api.dicebear.com/7.x/shapes/svg?seed=nexus" alt="Default Avatar" class="w-full h-full rounded-full opacity-80">
+                    <img src="front/assets/3.png" alt="Default Avatar" class="w-full h-full rounded-full opacity-80">
                 </div>
                 <div class="absolute inset-0 bg-white/5 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center cursor-pointer">
                     <span class="text-[8px] uppercase tracking-tighter bg-black/80 p-2 border border-zinc-700">Update_Image</span>
@@ -95,7 +97,7 @@ $posming = $result_posming->fetch_assoc();
         <section class="grid grid-cols-1 md:grid-cols-3 gap-6 py-12">
             <div class="border border-zinc-900 p-6 bg-zinc-950/30">
                 <h4 class="text-[9px] text-zinc-700 uppercase tracking-widest mb-2">// Posmings</h4>
-                <span class="font-gasoek text-2xl">128</span>
+                <span class="font-gasoek text-2xl"></span>
             </div>
             <div class="border border-zinc-900 p-6 bg-zinc-950/30">
                 <h4 class="text-[9px] text-zinc-700 uppercase tracking-widest mb-2">// Followers</h4>
@@ -103,7 +105,7 @@ $posming = $result_posming->fetch_assoc();
             </div>
             <div class="border border-zinc-900 p-6 bg-zinc-950/30">
                 <h4 class="text-[9px] text-zinc-700 uppercase tracking-widest mb-2">// Joined_In</h4>
-                <span class="font-gasoek text-2xl italic">DEC_2025</span>
+                <span class="font-gasoek text-2xl italic"><?php echo htmlspecialchars($usuario['created_at']); ?></span>
             </div>
         </section>
 
@@ -172,7 +174,7 @@ $posming = $result_posming->fetch_assoc();
         <div class="border rounded-md border-zinc-900 bg-zinc-950/20 p-6 group hover:border-zinc-700 transition-all">
             <div class="flex justify-between items-start mb-4">
                 <span class="font-mono text-[9px] text-zinc-600 uppercase tracking-widest">Signal_ID: <?php echo htmlspecialchars($posming['id_posming']); ?></span>
-                <span class="font-mono text-[9px] text-zinc-700 italic">28_DEC_2025</span>
+                <span class="font-mono text-[9px] text-zinc-700 italic"><?php echo htmlspecialchars($posming['created_at']); ?></span>
             </div>
 
             <p class="text-sm text-zinc-400 font-mono leading-relaxed mb-6">
